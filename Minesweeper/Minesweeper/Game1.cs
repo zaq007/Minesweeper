@@ -87,7 +87,15 @@ namespace Minesweeper
                 switch (menu.Update(gameTime))
                 {
                     case "Exit": this.Exit(); break;
-                    case "New Game": GameState.setState("Game"); Heigth = menu.GetHeigth(); Width = menu.GetWidth(); Mines = menu.GetMines(); menu = null; break;
+                    case "New Game": 
+                        GameState.setState("Game"); 
+                        Heigth = menu.GetHeigth(); 
+                        Width = menu.GetWidth(); 
+                        Mines = menu.GetMines(); 
+                        graphics.PreferredBackBufferHeight = Heigth * Core.Map.Ground.CellSize;
+                        graphics.PreferredBackBufferWidth = Width * Core.Map.Ground.CellSize;
+                        graphics.ApplyChanges();
+                        menu = null; break;
                 }
             } else
                 if (GameState.getState() == "Game")

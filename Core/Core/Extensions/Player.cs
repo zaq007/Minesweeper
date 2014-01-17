@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 
 namespace Core.Extensions
 {
@@ -13,6 +14,12 @@ namespace Core.Extensions
         static Player()
         {
             Time = 0;
+            Timer timer = new Timer(1000);
+            timer.Elapsed += delegate
+            {
+                Time++;
+            };
+            timer.Start();
         }    
     }
 }

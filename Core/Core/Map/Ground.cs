@@ -67,7 +67,10 @@ namespace Core.Map
             {
                 var a = MessageBox.Show(null, "Вы проиграли! :(\nВаше время - " + Player.Time + " секунд.\nНачать сначала?", "Печаль", MessageBoxButtons.YesNo);
                 if (a == DialogResult.Yes)
+                {
                     Return.Message = "Retry";
+                    Player.Time = 0;
+                }
                 else Return.Message = "Exit";
             }
         }

@@ -20,12 +20,6 @@ namespace Core.Controllers
 
         public Controller(int x, int y, int n)
         {
-            Timer timer = new Timer(1000);
-            timer.Elapsed += delegate
-            {
-                Player.Time++;
-            };
-            timer.Start();
             mouseHandler = new MouseHandler();
             ground = new Ground(x, y, n, mouseHandler);
             mouseHandler.OnClick += ground.OnClick;
