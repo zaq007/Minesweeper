@@ -17,14 +17,15 @@ namespace Menu.ListBox
         Arrow Up;
         Arrow Down;
         Monitor Monitor;
+        public string Title { get; private set; }
 
-        public ListBox(Rectangle position, MouseHandler mouseHandler)
+        public ListBox(Rectangle position, MouseHandler mouseHandler, string title = "")
         {
+            Title = title;
             Position = position;
             Value = 10;
             Monitor = new Monitor(new Rectangle(position.X, position.Y, 2*Position.Width/3, position.Height), this);
             Up = new Arrow(TextureLoader.ArrowUp, new Rectangle(position.X + Monitor.Position.Width, position.Y, Position.Width / 3, position.Height / 2), this, delegate { this.Value++; });
-
             Down = new Arrow(TextureLoader.ArrowDown, new Rectangle(position.X + Monitor.Position.Width, position.Y + Up.Position.Height, Position.Width / 3, position.Height/2), this,  delegate { this.Value--; });
             mouseHandler.OnClick += Up.OnClick;
             mouseHandler.OnClick += Down.OnClick;

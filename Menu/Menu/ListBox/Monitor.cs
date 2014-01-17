@@ -25,7 +25,8 @@ namespace Menu.ListBox
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position, Color.White);
-            spriteBatch.DrawString(TextureLoader.Font, Parent.Value.ToString(), new Vector2(Position.X, Position.Y), Color.Red);
+            spriteBatch.DrawString(TextureLoader.Font, Parent.Value.ToString(), new Vector2(Position.X+2, Position.Y+1), Color.Red);
+            spriteBatch.DrawString(TextureLoader.Font, Parent.Title, new Vector2(Position.X - 5, Position.Y - 25), Color.Black);
         }
 
     }

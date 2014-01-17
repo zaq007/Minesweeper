@@ -22,11 +22,11 @@ namespace Menu.Controllers
         {
             mouseHandler = new MouseHandler();
             buttonController = new ButtonControler();
-            buttonController.NewButton(new NewGame(250, 100, TextureLoader.BtnNewGame));
-            buttonController.NewButton(new Exit(250, 250, TextureLoader.BtnExit));
-            Height = new ListBox.ListBox(new Rectangle(0, 0, 100, 50), mouseHandler);
-            Width = new ListBox.ListBox(new Rectangle(0, 55, 100, 50), mouseHandler);
-            Mines = new ListBox.ListBox(new Rectangle(0, 110, 100, 50), mouseHandler);
+            buttonController.NewButton(new NewGame(250, 150, TextureLoader.BtnNewGame));
+            buttonController.NewButton(new Exit(250, 300, TextureLoader.BtnExit));
+            Height = new ListBox.ListBox(new Rectangle(230, 100, 50, 25), mouseHandler, "Height");
+            Width = new ListBox.ListBox(new Rectangle(380, 100, 50, 25), mouseHandler, "Width");
+            Mines = new ListBox.ListBox(new Rectangle(530, 100, 50, 25), mouseHandler, "Mines");
         }
 
         internal void Update(Microsoft.Xna.Framework.GameTime gameTime)
